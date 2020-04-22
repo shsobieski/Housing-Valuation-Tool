@@ -23,9 +23,22 @@ After we've made a decision about buying or selling, how should we value the hou
 Using the model I create I want to test the hypothesis that the largest houses in a neighborhood are less valuable than their peers, holding all else equal. 
 
 # Description of Data
-The data contains 21597 entries with 21420 unique houses sold in the King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368. Houses in the sample range from brand new to 115 years old, with a mean age of 43.3 and standard deviation of 29.38 years.   
+The data contained 21597 entries with 21420 unique houses sold in the King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368. Houses in the sample range from brand new to 115 years old, with a mean age of 43.3 and standard deviation of 29.38 years.  
 
-For this analysis the data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was  
+After data exploration, I chose to drop outliers in these categories: 
+ - Price- Houses that sold for more than $1,160,000 (5% of the data, 1458 entries)
+ - Bedrooms- Houses with more than 8 bedrooms (8 of the remaining entries)
+ - sqft_above- Houses with more than 4750 sqft of space above ground (20 of the remaining entries)
+ - sqft_living- Houses with more than 5146 sqft of total living space (20 of the remaining entries)
+ - sqft_lot- Houses with more than 19965 sqft lot (2046 of the remaining entries)
+ - sqft_lot15- 
+ 
+##### *Note*
+There is a large sample of data with very large lot sizes. Potentially, this is farm land or something like it. For future projects this slice of data could be useful for predicting more rural home values. In this analysis, I am focusing on houses with lot sizes closer to the mean.
+
+Ultimately, for this analysis the data contained 18338 entries with 18178 unique houses. Sale prices in the set range from $78,000 to $1,150,000 with a mean of $468,707, median of $427,500 and standard deviation of $206,927.
+
+The data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was 37.   
 
 # Added Features
 Based on the questions posed in the analysis, I chose to add these features to the data:
