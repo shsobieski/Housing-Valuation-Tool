@@ -25,17 +25,18 @@ Using the model I create I want to test the hypothesis that the largest houses i
 # Description of Data
 The data contained 21597 entries with 21420 unique houses sold in the King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368.  
 
-After data exploration, I chose to drop outliers in these categories: 
- - Price- Houses that sold for more than $1,160,000 (5% of the data, 1458 entries)
- - Bedrooms- Houses with more than 8 bedrooms (8 of the remaining entries)
- - sqft_above- Houses with more than 4750 sqft of space above ground (20 of the remaining entries)
- - sqft_living- Houses with more than 5146 sqft of total living space (20 of the remaining entries)
- - sqft_lot- Houses with more than 19965 sqft lot (2046 of the remaining entries)
- - sqft_lot15- 
- 
-##### --Note-- There is a large sample of data with very large lot sizes. Potentially, this is farm land or something like it. For future projects this slice of data could be useful for predicting more rural home values. In this analysis, I am focusing on houses with lot sizes closer to the mean.
+During data exploration I found outlier values and tested for linearity of the relationship between the independent variables and the dependent variables.
 
-Ultimately, for this analysis the data contained 18338 entries with 18178 unique houses. Sale prices in the set range from $78,000 to $1,150,000 with a mean of $468,707, median of $427,500 and standard deviation of $206,927.
+Notable Findings:
+- A small number of houses with extremely large prices were skewing the sample.
+- Lot Square footage does not appear to have a significant relationship with price after accounting for outliers and will be removed from the analysis. 
+- Condition has no apparent relationship with price and will be dropped from the analysis.
+- Houses East of -121.783 degrees longitude were dropped from this analysis because they accounted for only 1% of the data and were causing skew.
+- Although lattitude and longitude do not have an observable linear relationship the nature of what they describe suggest that they may be confounding variables when assessing the variables for interactivity.
+
+*--Note-- There is a very large sample of data with large lot sizes that has a noticably different relationship with price. Potentially, this is farm land or something like it. For future projects this slice of data could be useful for predicting more rural home values. Because these houses are so different I dropped these outliers even though I will  not be using lot size data in this analysis.
+
+Ultimately, for this analysis the data contained 16565 entries with 16420 unique houses. Sale prices in the set range from $80,000 to $974,350 with a mean of $452,234 median of $420,000 and standard deviation of $186,680.
 
 The data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was 37.   
 
