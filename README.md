@@ -23,28 +23,30 @@ After we've made a decision about buying or selling, how should we value the hou
 Using the model I create I want to test the hypothesis that the largest houses in a neighborhood are less valuable than their peers, holding all else equal. 
 
 # Description of Data
-The data contained 21597 entries with 21420 unique houses sold in the King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368.  
+The data contained 21597 entries with data on houses sold in King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368.  
 
 During data exploration I found outlier values and tested for linearity of the relationship between the independent variables and the dependent variables.
 
-Notable Findings:
-- A small number of houses with extremely large prices were skewing the sample.
+### Notable Findings:
+- A relatively small number of houses with extremely large prices were skewing the sample.
 - Lot Square footage does not appear to have a significant relationship with price after accounting for outliers and will be removed from the analysis. 
 - Condition has no apparent relationship with price and will be dropped from the analysis.
-- Houses East of -121.783 degrees longitude were dropped from this analysis because they accounted for only 1% of the data and were causing skew.
-- Although lattitude and longitude do not have an observable linear relationship the nature of what they describe suggest that they may be confounding variables when assessing the variables for interactivity.
+- Houses East of -121.783 degrees longitude were dropped from this analysis because they accounted for only 1% of the data and were causing skew. All houses are within 32.16 miles of Seattle city center.
 
 *--Note-- There is a very large sample of data with large lot sizes that has a noticably different relationship with price. Potentially, this is farm land or something like it. For future projects this slice of data could be useful for predicting more rural home values. Because these houses are so different I dropped these outliers even though I will  not be using lot size data in this analysis.
+
+
+### Added Features
+Based on the questions posed in the analysis, I chose to add these features to the data:
+- age of house at point of sale
+- distance from house to Seattle city center
+- nearest city data for the 5 largest cities in the county
+- sq footage relative to nearest fifteen neighbors
 
 Ultimately, for this analysis the data contained 16565 entries with 16420 unique houses. Sale prices in the set range from $80,000 to $974,350 with a mean of $452,234 median of $420,000 and standard deviation of $186,680.
 
 The data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was 37.   
 
-# Added Features
-Based on the questions posed in the analysis, I chose to add these features to the data:
-- age of house at point of sale
-- distance from house to each of 6 major cities in the County
-- size relative to nearest fifteen neighbors
 
 # Establish a Baseline Model
 After standardizing the variables, the baseline model recorded an r-squared of (.8536) against the training set along with a MSE of (.1455). Against the test set, r-squared was (.8458) and the MSE was (.1578). The difference of (.0122) for the MSE of the training and test groups suggests that the model is not overfit.  
