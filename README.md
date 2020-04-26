@@ -49,7 +49,7 @@ The data was split into a train test split with a test size of .2. To allow for 
 
 
 # Establish a Baseline Model
-After standardizing the variables, the baseline model recorded an r-squared of (.8536) against the training set along with a MSE of (.1455). Against the test set, r-squared was (.8458) and the MSE was (.1578). The difference of (.0122) for the MSE of the training and test groups suggests that the model is not overfit.  
+After standardizing the variables, the baseline model recorded an r-squared of (.7503) against the training set along with a MSE of (.2477). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.7487). Against the test set, r-squared was (.7642) and the MSE was (.2436). The difference of (.004) for the MSE of the training and test groups suggests that the model is not overfit.  
 
 Observing this plot:
 
