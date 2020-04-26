@@ -43,7 +43,7 @@ Based on the questions posed in the analysis, I chose to add these features to t
 - nearest city data for the 5 largest cities in the county
 - sq footage relative to nearest fifteen neighbors
 
-Ultimately, for this analysis the data contained 16565 entries with 16420 unique houses. Sale prices in the set range from $80,000 to $974,350 with a mean of $452,234 median of $420,000 and standard deviation of $186,680.
+Ultimately, for this analysis the data contained 16262 entries. Sale prices in the set range from $80,000 to $974,350 with a mean of $451,099 median of $420,000 and standard deviation of $185,544.
 
 The data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was 37.   
 
