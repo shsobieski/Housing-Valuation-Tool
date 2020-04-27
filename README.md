@@ -43,25 +43,19 @@ Based on the questions posed in the analysis, I chose to add these features to t
 - nearest city data for the 5 largest cities in the county
 - sq footage relative to nearest fifteen neighbors
 
-Ultimately, for this analysis the data contained 16262 entries. Sale prices in the set range from $80,000 to $974,350 with a mean of $451,099 median of $420,000 and standard deviation of $185,544.
+Ultimately, for this analysis the data contained 16261 entries. Sale prices in the set range from $80,000 to $974,350 with a mean of $451,089 median of $420,000 and standard deviation of $185,546.
 
 The data was split into a train test split with a test size of .2. To allow for reproducablity, the random state used for the split was 37.   
 
 
 # Establish a Baseline Model
-After standardizing the variables, the baseline model recorded an r-squared of (.7503) against the training set along with a MSE of (.2477). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.7487). Against the test set, r-squared was (.7642) and the MSE was (.2436). The difference of (.004) for the MSE of the training and test groups suggests that the model is not overfit.  
-
-Observing this plot:
-
-******
-
-It showed that although the residuals were dispersed fairly evenly, the sudden downward slope at higher prices suggested that the model may be more acurate after training with some added features. 
+After standardizing the variables, the baseline model recorded an r-squared of (.7500) against the training set along with a MSE of (.2499). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.7487). Against the test set, r-squared was (.7657) and the MSE was (.2348). The difference of (.0151) for the MSE of the training and test groups suggests that the model is not overfit.  
 
 # Train the Model
 In order to train the model I used the following steps:
-Find and included interactions.
-Find and included polynomial relationships.
-Variable Selection.
+1. Find and included interactions.
+2. Find and included polynomial relationships.
+3. Variable Selection.
 
 ## Interaction Features
 Through an iterative process designed to find the interactions that most highly impacted the MSE of the model I determined 6 interaction features were worthy of inclusion in the final model. 
