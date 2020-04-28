@@ -38,10 +38,13 @@ During data exploration I found outlier values and tested for linearity of the r
 
 ### Added Features
 Based on the questions posed in the analysis, I chose to add these features to the data:
-- age of house at point of sale
-- distance from house to Seattle city center
-- nearest city data for the 5 largest cities in the county
-- sq footage relative to nearest fifteen neighbors
+- Month the house was sold
+- Age of the house at point of sale
+- Number of years since the house has been renovated
+- Whether the house had been renovated at all
+- Distance from house to Seattle city center
+- Nearest city data for the 5 largest cities in the county
+- Square footage relative to nearest fifteen neighbors
 
 Ultimately, for this analysis the data contained 16261 entries. Sale prices in the set range from $80,000 to $974,350 with a mean of $451,089 median of $420,000 and standard deviation of $185,546.
 
@@ -51,29 +54,55 @@ The data was split into a train test split with a test size of .2. To allow for 
 # Establish a Baseline Model
 After standardizing the variables, the baseline model recorded an r-squared of (.7500) against the training set along with a MSE of (.2499). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.7487). Against the test set, r-squared was (.7657) and the MSE was (.2348). The difference of (.0151) for the MSE of the training and test groups suggests that the model is not overfit.  
 
+High impact variables included: dist_to_Seattle and WaterFront
+Low impact variables included: floors
+
+#### Model 1 Residuals Against Test Data
+
+![](figures/Model1Resids.png)
+
+Based on the KDE plot of residuals, it is clear that the model could be more generalizable, especially for high value homes.
+
 # Train the Model
 In order to train the model I used the following steps:
 1. Find and included interactions.
 2. Find and included polynomial relationships.
-3. Variable Selection.
+3. Selected for statistically significant variables.
 
 ## Interaction Features
-Through an iterative process designed to find the interactions that most highly impacted the MSE of the model I determined 6 interaction features were worthy of inclusion in the final model. 
+Through an iterative process designed to find the interactions that most highly impacted the MSE of the model I determined 7 interaction features were worthy of inclusion in the final model. Full details can be found in the model training notebook. The general trend was geographic interactions. (e.g. as dist_to_Seattle and lat, which describes the fact that prices rise when approaching Seattle from the North or the South)  
 
-1. lat and dist_to_Seattle
-2. grade and dist_to_Seattle
-3. sqft_living and dist_to_Seattle
-4. sqft_living15 and dist_to_Seattle
-6. long and dist_to_Seattle
-6. lat and long
+After including the 7 interaction features, the model(model2)  recorded an r-squared of (.8009) against the training set along with a MSE of (.1990). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.7993). Against the test set, r-squared was (.8147) and the MSE was (.1857). The difference of (.01331) for the MSE of the training and test groups suggests that the model is not overfit.
 
+High impact Variables included: dist_to_Seattle, WaterFront, Federal Way, and long * Seattle
+Low impact Variables included: long * dist_to_Seattle
 
-1. sqft_living, sqft_living15, grade and dist_to_Seattle: as distance to Seattle increases, the gap between the price of large homes and small homes decreases. This makes sense, as large homes in higher density areas are likely to cost more relative to similar sized homes in lower density areas. 
-2. lat, long and dist_to_Seattle: homes get more valuable as they approach Seattle from any direction, therefore this interaction exists.
-3. lat and long: a classic example of a interaction, clearly lattitude and longitude mean more combined then they do apart.   
+#### Model2 Residuals Against Test Data
 
-After including the 6 interaction features, the model(model2) recorded an r-squared of (.8633) against the training set along with a MSE of (.1359). Against the test set, r-squared was (.8551) and the MSE was (.1482). The difference of (.0123) for the MSE of the training and test groups suggests that the model is not overfit, however, it's fit is slightly less generalizable compared to the baseline. Considering substantial improvements in all other metrics, I moved forward with model2. 
+![](figures/Model2Resids.png)
+
+Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
 
 ## Polynomial Features
+Through an iterative process designed to find the polynomial relationships between the independent and dependent variables, I determined polynomial factors to include as features in the model. Full details can be found in the model training notebook. 
 
-# Create Visuals
+After including the new features, the model(model3)  recorded an r-squared of (.8337) against the training set along with a MSE of (.1605). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.8296). Against the test set, r-squared was (.8398) and the MSE was (.1605). The difference of (.0057) for the MSE of the training and test groups suggests that the model is not overfit.
+
+#### Model3 Residuals Against Test Data
+
+![](figures/Model3Resids.png)
+
+Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
+
+## Variable Selection By P-Values
+Through stepwise selection, I determined features that had statistically significant relationships at an alpha of .05. 
+
+After excluding insignificant features, the model(model4)  recorded an r-squared of (.8315) against the training set along with a MSE of (.1684). In 10-Fold KFold crossvalidation, it recorded an r-squared of (.8294). Against the test set, r-squared was (.8389) and the MSE was (.1614). The difference of (.0070) for the MSE of the training and test groups suggests that the model is not overfit.
+
+#### Model4 Residuals Against Test Data
+
+![](figures/Model4Resids.png)
+
+Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
+
+# Analysis
