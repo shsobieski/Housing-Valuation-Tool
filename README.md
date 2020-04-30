@@ -61,7 +61,7 @@ Low impact variables included: floors
 
 ![](figures/Model1Resids.png)
 
-Based on the KDE plot of residuals, it is clear that the model could be more generalizable, especially for high value homes.
+Based on the plot of residuals, it is clear that the model could be more generalizable, especially for high value homes.
 
 # Train the Model
 In order to train the model I used the following steps:
@@ -81,7 +81,7 @@ Low impact Variables included: long * dist_to_Seattle
 
 ![](figures/Model2Resids.png)
 
-Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
+Based on the plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
 
 ## Polynomial Features
 Through an iterative process designed to find the polynomial relationships between the independent and dependent variables, I determined polynomial factors to include as features in the model. Full details can be found in the model training notebook. 
@@ -92,7 +92,7 @@ After including the new features, the model(model3)  recorded an r-squared of (.
 
 ![](figures/Model3Resids.png)
 
-Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
+Based on the plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
 
 ## Variable Selection By P-Values
 Through stepwise selection, I determined features that had statistically significant relationships at an alpha of .05. 
@@ -103,6 +103,6 @@ After excluding insignificant features, the model(model4)  recorded an r-squared
 
 ![](figures/Model4Resids.png)
 
-Based on the KDE plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
+Based on the plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
 
 # Analysis
