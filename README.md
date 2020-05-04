@@ -14,7 +14,9 @@ This model will be able to assist homeowners and real estate developers predict 
 - If making an addition to the home, what is the impact of increased square footage on the price?
 - If making an addition, what kind of rooms would be most beneficial to add?
 
-## 
+## Investment Guidance
+This model will also be able to assist investors in targeting homes that are most likely to increase in value. To demonstrate this capacity, this analysis will investigate:
+- the impact of age on the price of a house
 
 # Description of Data
 The data contained 21597 entries with data on houses sold in King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368.  
