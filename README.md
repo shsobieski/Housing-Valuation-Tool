@@ -3,24 +3,18 @@
 
 The task is to use data from the King County housing market to make a model that can predict housing prices. In order to determine the most valuable ways to use this model I broke the questions of this project into three groups.
 
-## When To Buy
-What factors predict that a house is a good investment?
-- Model v. Age grouped by other predictive variables
-- Predict age of highest potential (when slope is highest positive, or zero and at the bottom)
+## Housing Valuation
+This model will be able to assist real estate professionals assess the value of homes, marketing efforts, and even undeveloped land. To demonstrate the potential of this model, this analysis will focus on:
+- The impact of month on price of sale
+- The impact of number of interested buyers on price of sale
 
-- predicted Value over time
-- what month should we buy?
+## Renovation Advice
+This model will be able to assist homeowners and real estate developers predict the efficacy of remodeling. To demostrate this component of the tool, this analysis will also investigate:
+- Whether renovation has significant impact overall, and if so to what extent
+- If making an addition to the home, what is the impact of increased square footage on the price?
+- If making an addition, what kind of rooms would be most beneficial to add?
 
-## When To Sell 
-What factors predict a house is at peak value?
-- Model v. Age visual grouped by other predictive variables
-- predict age of minimal potential (when slope is 0 and at the top)
-
-## Valuation
-After we've made a decision about buying or selling, how should we value the house in the market?
-
-## Hypothesis Testing
-Using the model I create I want to test the hypothesis that the largest houses in a neighborhood are less valuable than their peers, holding all else equal. 
+## 
 
 # Description of Data
 The data contained 21597 entries with data on houses sold in King County during 2014 and 2015. Sale prices in the set range from $78,000 to $7,700,000 with a mean of $540,296, median of $450,000 and standard deviation of $367,368.  
@@ -106,3 +100,30 @@ After excluding insignificant features, the model(model4)  recorded an r-squared
 Based on the plot of residuals, there is improvement for high values homes, and residuals appear to be reduced. 
 
 # Analysis
+To conduct analysis on each variable I isolated it's impact within the model by taking the average of every other category to fill the dataset, and looking at what happens to predicted price when only changing the target independent variable.
+
+## Housing Valuation
+
+![](figures/figure2.png)
+
+The model predicts highest prices in the month of March, with a difference of $12,530 over the average prices of homes in the sample. The model predicts lowest prices in the month of October with prices falling a predicted $13,417.
+
+![](figures/figure3.png)
+
+The model predicts high degrees of price shifts with an increase in interested buyers. At four viewings the predicted price is $155,933 over the average price of homes in the sample, while at 0 viewings the predicted price is $3,252 below the average. 
+
+![](figures/figure4.png)
+
+The model predicts that renovation of any kind improves the value of a home by $18,824. Not renovating leads to a prediction $529 below the average price of homes in the sample. 
+
+![](figures/figure5.png)
+
+The model predicts that adding only 100 square feet of living space adds approximately $12,913 of value to a home, flattening off and peaking at 4738 square feet.
+
+![](figures/figure6.png)
+
+The model predicts that adding a second bedroom will increase the value of the home by $29,478. Adding additional bedrooms will contribute to the value of the home significantly less, and adding a fifth bedroom will actually decrease the value of the home. Adding an additional half-bathroom to any size home is predicted to increase the value by $6,781.
+
+![](figures/figure7.png)
+
+The model predicts that houses lose value for their first 24 years after being built. At that point, the prices then increase until peaking at 94 years old.

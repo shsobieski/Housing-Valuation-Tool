@@ -1,1 +1,0 @@
-1. I learned to clean the shit out of the data. Of course, in an ideal world, more data would make a model more generalizable, but I found in practice that was the opposite. The more specificly calibrated my data was, the more specific my predictions could be 
