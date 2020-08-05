@@ -112,7 +112,9 @@ The model predicts highest prices in the month of March, with a difference of $1
 
 ![](figures/figure3.png)
 
-The model predicts high degrees of price shifts with an increase in interested buyers. At four viewings the predicted price is $155,933 over the average price of homes in the sample, while at 0 viewings the predicted price is $3,252 below the average. 
+The model predicts high degrees of price shifts with an increase in quality of view. At a view rating of 4 the predicted price is $155,933 over the average price of homes in the sample, while at a 0 view score the predicted price is $3,252 below the average. 
+
+## Renovation Advice
 
 ![](figures/figure4.png)
 
@@ -125,6 +127,8 @@ The model predicts that adding only 100 square feet of living space adds approxi
 ![](figures/figure6.png)
 
 The model predicts that adding a second bedroom will increase the value of the home by $29,478. Adding additional bedrooms will contribute to the value of the home significantly less, and adding a fifth bedroom will actually decrease the value of the home. Adding an additional half-bathroom to any size home is predicted to increase the value by $6,781.
+
+## Investment Guidance
 
 ![](figures/figure7.png)
 
