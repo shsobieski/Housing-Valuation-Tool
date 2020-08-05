@@ -108,11 +108,7 @@ To conduct analysis on each variable I isolated it's impact within the model by 
 
 ![](figures/figure2.png)
 
-The model predicts highest prices in the month of March, with a difference of $12,530 over the average prices of homes in the sample. The model predicts lowest prices in the month of October with prices falling a predicted $13,417.
-
-![](figures/figure3.png)
-
-The model predicts high degrees of price shifts with an increase in quality of view. At a view rating of 4 the predicted price is $155,933 over the average price of homes in the sample, while at a 0 view score the predicted price is $3,252 below the average. 
+The model predicts highest prices in the month of March, with a difference of $12,530 over the average prices of homes in the sample. The model predicts lowest prices in the month of October with prices falling a predicted $13,417. 
 
 ## Renovation Advice
 
